@@ -1,11 +1,8 @@
 package com.kaizen.hospitalewertonpt2.services;
 
 import com.kaizen.hospitalewertonpt2.domains.Hospital.Hospital;
-import com.kaizen.hospitalewertonpt2.domains.ward.Ward;
 import com.kaizen.hospitalewertonpt2.dtos.HospitalDTO;
-import com.kaizen.hospitalewertonpt2.dtos.WardDTO;
 import com.kaizen.hospitalewertonpt2.repositories.HospitalRepository;
-import jakarta.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

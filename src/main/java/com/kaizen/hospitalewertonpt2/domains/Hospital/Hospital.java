@@ -1,5 +1,6 @@
 package com.kaizen.hospitalewertonpt2.domains.Hospital;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.kaizen.hospitalewertonpt2.domains.ward.Ward;
 import jakarta.persistence.*;
 import lombok.*;
@@ -30,6 +31,7 @@ public class Hospital {
     private String cnpj;
 
     @OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Ward> wards = new ArrayList<>();
 
     public void addWard(Ward ward) {

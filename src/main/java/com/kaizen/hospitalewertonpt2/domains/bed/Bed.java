@@ -1,5 +1,7 @@
 package com.kaizen.hospitalewertonpt2.domains.bed;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kaizen.hospitalewertonpt2.domains.room.Room;
 import com.kaizen.hospitalewertonpt2.domains.ward.Ward;
 import jakarta.persistence.*;
@@ -20,10 +22,11 @@ public class Bed {
     private Long bedId;
 
     private StatusBed statusBed;
+
     private Integer bedNumber;
-   // private Integer bedQuantity;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
+    @JsonIgnoreProperties("beds")
     private Room room;
 }

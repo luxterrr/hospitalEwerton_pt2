@@ -1,5 +1,7 @@
 package com.kaizen.hospitalewertonpt2.domains.room;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.kaizen.hospitalewertonpt2.domains.bed.Bed;
 import com.kaizen.hospitalewertonpt2.domains.ward.Ward;
 import jakarta.persistence.*;
@@ -29,9 +31,11 @@ public class Room {
 
     @ManyToOne
     @JoinColumn(name = "ward_id")
+    @JsonBackReference
     private Ward ward;
 
-    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Bed> beds = new ArrayList<>();
 
     public void addBed(Bed bed) {

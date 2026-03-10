@@ -17,11 +17,13 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long patientId;
 
-    private String name;
+    private String patientName;
 
     @Column(unique = true)
-    private String fone;
+    private String patientPhone;
 
     @Column(unique = true)
     private String cpf;
+
+    private boolean admitted = false;
 }
