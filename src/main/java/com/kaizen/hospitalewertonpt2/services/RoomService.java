@@ -13,11 +13,21 @@ public class RoomService {
     @Autowired
     private RoomRepository roomRepository;
 
-    public Room generateRoom (Room room, Ward ward) {
+    @Autowired
+    private BedService bedService;
+
+    public Room generateRoom (Ward ward, Integer i) {
         Room newRoom = new Room();
-        room.setFull(false);
-        //room.setRoomCode(); ver substr
-        room.setWard(ward);
+        newRoom.setNumberBed(ward.getNumbersBedsperRoom());
+        newRoom.setRoomCode(ward.getSpeciality().substring(0,3).toUpperCase() + "-" + i);
+        newRoom.setWard(ward);
+
+        if (ward.getNumbersBedsperRoom() > 0) {
+            for (int c = 1; c <= ward.getNumbersBedsperRoom(); c++) {
+                bedService.generateBed(newRoom, c);
+            }
+        }
+
         ward.addRoom(newRoom);
         return roomRepository.save(newRoom);
     }

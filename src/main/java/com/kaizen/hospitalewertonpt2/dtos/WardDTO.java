@@ -14,5 +14,5 @@ import java.util.List;
 public class WardDTO {
     private String speciality;
     private Integer numbersRooms;
-    private Integer numbersBeds;
+    private Integer numbersBedsperRoom;
 }

@@ -23,7 +23,9 @@ public class Room {
     private Long roomId;
 
     private String roomCode;
-    private boolean Full;
+    private Integer numberBed;
+
+    private boolean filled = false;
 
     @ManyToOne
     @JoinColumn(name = "ward_id")
@@ -32,4 +34,8 @@ public class Room {
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<Bed> beds = new ArrayList<>();
 
+    public void addBed(Bed bed) {
+        this.beds.add(bed);
+        bed.setRoom(this);
+    }
 }

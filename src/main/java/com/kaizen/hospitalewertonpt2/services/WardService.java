@@ -19,18 +19,22 @@ public class WardService {
     @Autowired
     private RoomService roomService;
 
+    @Transactional
     public Ward generateWard (WardDTO wardDTO, Hospital hospital) {
-        Ward ward = new Ward();
-        ward.setSpeciality(wardDTO.getSpeciality());
-        ward.setNumbersRooms(wardDTO.getNumbersRooms());
-        ward.setNumbersBeds(wardDTO.getNumbersBeds());
-        ward.setHospital(hospital);
+        Ward newWard = new Ward();
+        newWard.setSpeciality(wardDTO.getSpeciality());
+        newWard.setNumbersRooms(wardDTO.getNumbersRooms());
+        newWard.setNumbersBedsperRoom(wardDTO.getNumbersBedsperRoom());
+        newWard.setHospital(hospital);
+
         if (wardDTO.getNumbersRooms() > 0) {
-            ward.getRooms().forEach(room -> ward.getRooms().add(roomService.generateRoom(room, ward)));
+            for (int i = 1; i <= wardDTO.getNumbersRooms(); i++) {
+                roomService.generateRoom(newWard, i); //arrumar essa gambiarra feia
+            }
         }
         // 3. Vinculamos ao hospital usando o método utilitário
-        hospital.addWard(ward);
-        return wardRepository.save(ward);
+        hospital.addWard(newWard);
+        return wardRepository.save(newWard);
     }
 
 

@@ -3,6 +3,7 @@ package com.kaizen.hospitalewertonpt2.domains.ward;
 import com.kaizen.hospitalewertonpt2.domains.Hospital.Hospital;
 import com.kaizen.hospitalewertonpt2.domains.room.Room;
 import com.kaizen.hospitalewertonpt2.dtos.HospitalDTO;
+import com.kaizen.hospitalewertonpt2.dtos.RoomDTO;
 import com.kaizen.hospitalewertonpt2.dtos.WardDTO;
 import jakarta.persistence.*;
 import lombok.*;
@@ -26,7 +27,7 @@ public class Ward {
 
     private String speciality;
     private Integer numbersRooms;
-    private Integer numbersBeds;
+    private Integer numbersBedsperRoom;
 
     @ManyToOne
     @JoinColumn(name = "hospital_id")

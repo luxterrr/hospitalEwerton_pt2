@@ -21,7 +21,7 @@ public class Bed {
 
     private StatusBed statusBed;
     private Integer bedNumber;
-    private Integer bedQuantity;
+   // private Integer bedQuantity;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
