@@ -17,24 +17,21 @@ public class HospitalService {
 
     @Autowired
     private HospitalRepository hospitalRepository;
+    
+    @Autowired
+    private WardService wardService;
 
     @Transactional
     public Hospital saveHospital(HospitalDTO hospitalDTO) {
         Hospital hospital = new Hospital();
         hospital.setName(hospitalDTO.getName());
         hospital.setCnpj(hospitalDTO.getCnpj());
-        hospital.setHospitalPhone(hospitalDTO.getPhone());
+        hospital.setHospitalPhone(hospitalDTO.getHospitalPhone());
 
-        if (hospital.getWards() != null) {
-            for (WardDTO wardDTO : hospitalDTO.getWards()) {
-                Ward ward = new Ward();
-                ward.setSpeciality(wardDTO.getSpeciality());
-                ward.setNumbersRooms(wardDTO.getNumbersRooms());
-                ward.setNumbersBeds(wardDTO.getNumbersBeds());
-
-                // 3. Vinculamos ao hospital usando o método utilitário
-                hospital.addWard(ward);
-            }
+        if (hospitalDTO.getWardDTOS() != null) {
+            hospitalDTO.getWardDTOS().forEach(wardDTO ->
+                    hospital.getWards().add(wardService.generateWard(wardDTO, hospital))
+            );
         }
         return hospitalRepository.save(hospital);
     }

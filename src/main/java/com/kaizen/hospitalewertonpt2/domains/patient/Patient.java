@@ -6,6 +6,10 @@ import lombok.*;
 @Entity
 @Table(name = "tb_room")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 
 public class Patient {
 

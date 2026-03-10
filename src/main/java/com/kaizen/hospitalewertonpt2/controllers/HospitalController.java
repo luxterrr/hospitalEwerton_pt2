@@ -21,14 +21,13 @@ public class HospitalController {
     private HospitalService hospitalService;
 
     @PostMapping
-    public ResponseEntity<String> createHospital(@RequestBody HospitalDTO base) {
+    public ResponseEntity<HospitalDTO> createHospital(@RequestBody HospitalDTO base) {
         System.out.println("Hospital: " + base.getName());
 
         // Percorrendo a lista de especialidades enviada
-        for (WardDTO wardDTO : base.getWards()) {
-            System.out.println("Especialidade: " + wardDTO.getSpeciality());
-        }
-        return ResponseEntity.ok("created");
+      
+        hospitalService.saveHospital(base);
+        return ResponseEntity.ok(base);
     }
 
     @GetMapping

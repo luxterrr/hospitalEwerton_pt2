@@ -8,6 +8,10 @@ import lombok.*;
 @Entity
 @Table(name = "tb_bed")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 
 public class Bed {
 

@@ -10,6 +10,10 @@ import java.util.List;
 @Entity
 @Table(name = "tb_hospital")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 
 public class Hospital {
 
@@ -25,7 +29,7 @@ public class Hospital {
     @Column(unique = true)
     private String cnpj;
 
-    @OneToMany
+    @OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL)
     private List<Ward> wards = new ArrayList<>();
 
     public void addWard(Ward ward) {

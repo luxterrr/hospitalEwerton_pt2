@@ -1,0 +1,17 @@
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/Hospitalewertonpt2Application.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/controllers/HospitalController.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/domains/Hospital/Hospital.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/domains/admission/AdmissionLog.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/domains/bed/Bed.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/domains/bed/StatusBed.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/domains/patient/Patient.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/domains/room/Room.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/domains/ward/Ward.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/dtos/HospitalDTO.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/dtos/RoomDTO.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/dtos/WardDTO.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/repositories/HospitalRepository.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/repositories/WardRepository.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/services/HospitalService.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/services/RoomService.java
+/home/sg/Downloads/hospitalewertonpt2/src/main/java/com/kaizen/hospitalewertonpt2/services/WardService.java
