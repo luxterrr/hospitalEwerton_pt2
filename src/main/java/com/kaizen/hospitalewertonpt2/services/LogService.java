@@ -9,10 +9,12 @@ import com.kaizen.hospitalewertonpt2.dtos.LogDTO;
 import com.kaizen.hospitalewertonpt2.repositories.BedRepository;
 import com.kaizen.hospitalewertonpt2.repositories.LogRepository;
 import com.kaizen.hospitalewertonpt2.repositories.PatientRepository;
+import com.kaizen.hospitalewertonpt2.repositories.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class LogService {
@@ -31,6 +33,12 @@ public class LogService {
 
     @Autowired
     private LogRepository logRepository;
+
+    @Autowired
+    private RoomService roomService;
+
+    @Autowired
+    private RoomRepository roomRepository;
 
     public Log logCall (LogDTO logDTO) throws Exception {
         Patient sickPatient = this.patientService.findPatientById(logDTO.getPatientId());
@@ -63,6 +71,8 @@ public class LogService {
         this.patientRepository.save(sickPatient);
         this.bedRepository.save(useBed);
 
+        roomService.checkRoomFilled(useBed);
+
         return newLog;
     }
 
@@ -78,10 +88,13 @@ public class LogService {
 
         sickPatient.setAdmitted(false);
         useBed.setStatusBed(StatusBed.PREPARATION);
+        useBed.setPatient(null);
 
         this.logRepository.save(newLog);
         this.patientRepository.save(sickPatient);
         this.bedRepository.save(useBed);
+
+        roomService.checkRoomFilled(useBed);
 
         return newLog;
     }
@@ -91,4 +104,6 @@ public class LogService {
             return true;
         } else throw new RuntimeException("LOG DOESNT EXIST");
     }
+
+    public List<Log> getAllLogs() {return logRepository.findAll();}
 }

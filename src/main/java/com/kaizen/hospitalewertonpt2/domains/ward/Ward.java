@@ -8,6 +8,8 @@ import com.kaizen.hospitalewertonpt2.dtos.HospitalDTO;
 import com.kaizen.hospitalewertonpt2.dtos.RoomDTO;
 import com.kaizen.hospitalewertonpt2.dtos.WardDTO;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -28,7 +30,13 @@ public class Ward {
     private Long id;
 
     private String speciality;
+
+    @NotNull
+    @Min(0)
     private Integer numbersRooms;
+
+    @NotNull
+    @Min(0)
     private Integer numbersBedsperRoom;
 
     @ManyToOne
@@ -44,4 +52,6 @@ public class Ward {
         this.rooms.add(room);
         room.setWard(this);
     }
+
+
 }
