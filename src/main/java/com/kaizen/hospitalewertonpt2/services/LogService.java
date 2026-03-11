@@ -64,6 +64,7 @@ public class LogService {
         newLog.setLogType(logDTO.getLogType());
 
         sickPatient.setAdmitted(true);
+        sickPatient.setBed(useBed);
         useBed.setStatusBed(StatusBed.OCCUPIED);
         useBed.setPatient(sickPatient);
 
@@ -87,6 +88,7 @@ public class LogService {
         newLog.setLogType(logDTO.getLogType());
 
         sickPatient.setAdmitted(false);
+        sickPatient.setBed(null);
         useBed.setStatusBed(StatusBed.PREPARATION);
         useBed.setPatient(null);
 

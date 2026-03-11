@@ -8,6 +8,8 @@ import com.kaizen.hospitalewertonpt2.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PatientService {
 
@@ -31,4 +33,6 @@ public class PatientService {
             return true;
         }else return false;
     }
+
+    public List<Patient> getAllPatients() {return patientRepository.findAll();}
 }

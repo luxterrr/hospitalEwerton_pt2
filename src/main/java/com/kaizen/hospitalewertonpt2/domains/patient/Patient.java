@@ -1,5 +1,6 @@
 package com.kaizen.hospitalewertonpt2.domains.patient;
 
+import com.kaizen.hospitalewertonpt2.domains.bed.Bed;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,4 +27,7 @@ public class Patient {
 
     @Column(unique = true)
     private String cpf;
+
+    @OneToOne
+    private Bed bed;
 }

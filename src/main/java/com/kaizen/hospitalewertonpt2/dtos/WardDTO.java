@@ -12,6 +12,7 @@ import java.util.List;
 @Setter
 
 public class WardDTO {
+
     private String speciality;
     private Integer numbersRooms;
     private Integer numbersBedsperRoom;
