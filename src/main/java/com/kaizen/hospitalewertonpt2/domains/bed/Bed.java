@@ -2,6 +2,7 @@ package com.kaizen.hospitalewertonpt2.domains.bed;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.kaizen.hospitalewertonpt2.domains.patient.Patient;
 import com.kaizen.hospitalewertonpt2.domains.room.Room;
 import com.kaizen.hospitalewertonpt2.domains.ward.Ward;
 import jakarta.persistence.*;
@@ -19,7 +20,7 @@ public class Bed {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bedId;
+    private Long id;
 
     private StatusBed statusBed;
 
@@ -29,4 +30,8 @@ public class Bed {
     @JoinColumn(name = "room_id")
     @JsonIgnoreProperties("beds")
     private Room room;
+
+    @OneToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
 }

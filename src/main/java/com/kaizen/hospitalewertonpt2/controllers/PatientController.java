@@ -17,8 +17,8 @@ public class PatientController {
     private PatientService patientService;
 
     @PostMapping
-    public ResponseEntity<PatientDTO> createPatient (@RequestBody PatientDTO teste) {
-        patientService.savePatient(teste);
-        return ResponseEntity.ok(teste);
+    public ResponseEntity<PatientDTO> createPatient (@RequestBody PatientDTO patientDTO) {
+        patientService.savePatient(patientDTO);
+        return ResponseEntity.ok(patientDTO);
     }
 }

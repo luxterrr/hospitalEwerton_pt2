@@ -9,6 +9,7 @@ import lombok.*;
 @Setter
 
 public class RoomDTO {
+
     private String roomCode;
     private boolean filled = false;
 }

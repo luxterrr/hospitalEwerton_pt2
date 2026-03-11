@@ -25,7 +25,7 @@ public class Ward {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long wardId;
+    private Long id;
 
     private String speciality;
     private Integer numbersRooms;

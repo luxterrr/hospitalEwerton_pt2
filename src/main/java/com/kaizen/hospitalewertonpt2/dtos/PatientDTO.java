@@ -13,5 +13,4 @@ public class PatientDTO {
     private String patientName;
     private String cpf;
     private String patientPhone;
-    private boolean admitted = false;
 }

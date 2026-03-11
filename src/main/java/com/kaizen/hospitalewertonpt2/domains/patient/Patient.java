@@ -15,15 +15,15 @@ public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long patientId;
+    private Long id;
 
     private String patientName;
+
+    private boolean admitted = false;
 
     @Column(unique = true)
     private String patientPhone;
 
     @Column(unique = true)
     private String cpf;
-
-    private boolean admitted = false;
 }

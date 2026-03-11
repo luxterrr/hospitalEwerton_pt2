@@ -27,4 +27,14 @@ public class BedService {
     }
 
     public List<Bed> getAllBeds() {return bedRepository.findAll();}
+
+    public Bed findBedById(Long id) throws Exception{
+        return this.bedRepository.findById(id).orElseThrow(() -> new RuntimeException("BED NOT FOUND"));
+    }
+
+    public boolean validateBed(Bed useBed) {
+        if (useBed.getStatusBed() != StatusBed.UNOCCUPIED) {
+            return false;
+        }return true;
+    }
 }

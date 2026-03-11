@@ -1,4 +1,4 @@
-package com.kaizen.hospitalewertonpt2.domains.admission;
+package com.kaizen.hospitalewertonpt2.domains.log;
 
 import com.kaizen.hospitalewertonpt2.domains.bed.Bed;
 import com.kaizen.hospitalewertonpt2.domains.patient.Patient;
@@ -8,14 +8,22 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "tb_admission")
+@Table(name = "tb_log")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 
-public class AdmissionLog {
+public class Log {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long admissionId;
+    private Long id;
+
+    private LocalDateTime timeStamp;
+
+    private LogType logType;
 
     @ManyToOne
     @JoinColumn(name = "patient_id")
@@ -24,7 +32,4 @@ public class AdmissionLog {
     @ManyToOne
     @JoinColumn(name = "bed_id")
     private Bed bed;
-
-    private LocalDateTime date;
-
 }
