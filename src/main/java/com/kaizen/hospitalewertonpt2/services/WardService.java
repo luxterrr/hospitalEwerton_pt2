@@ -34,7 +34,7 @@ public class WardService {
         newWard.setHospital(foundHospital);
 
         // 3. Vinculamos ao hospital usando o método utilitário
-        foundHospital.addWard(newWard);
+        foundHospital.getWards().add(newWard);
         wardRepository.save(newWard);
 
         if (wardDTO.getNumbersRooms() > 0) {

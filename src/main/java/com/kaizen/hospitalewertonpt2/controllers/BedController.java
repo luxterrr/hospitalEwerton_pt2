@@ -5,10 +5,7 @@ import com.kaizen.hospitalewertonpt2.domains.bed.Bed;
 import com.kaizen.hospitalewertonpt2.services.BedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,6 +21,9 @@ public class BedController {
         return ResponseEntity.ok(bedService.getAllBeds());
     }
 
-    @PatchMapping("/prepareBed/{bedId}")
-    public ResponseEntity<>
+    @PatchMapping("/preparebed/{bedId}")
+    public ResponseEntity<String> prepareBed(@PathVariable Long bedId) throws Exception {
+        bedService.prepareBed(bedId);
+        return ResponseEntity.ok("BED IS ABLE TO USE");
+    }
 }

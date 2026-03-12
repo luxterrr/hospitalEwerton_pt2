@@ -28,27 +28,23 @@ public class RoomService {
     @Autowired
     private WardRepository wardRepository;
 
-    public Room generateRoom (Long wardId, RoomDTO room) {
+    public Room generateRoom (Long wardId, RoomDTO roomDTO) {
 
         Ward foundWard = wardRepository.findById(wardId).orElseThrow(() -> new RuntimeException("WARD NOT FOUND"));
 
-        for (int i = 1; i <= room.getNumberRooms(); i++) {
+        for (int i = 1; i <= roomDTO.getNumberRooms(); i++) {
 
             Room newRoom = new Room();
             newRoom.setRoomCode(this.generateRoomCode(foundWard, foundWard.getRooms()));
             newRoom.setWard(foundWard);
 
-            foundWard.addRoom(newRoom);
+            foundWard.getRooms().add(newRoom);
             roomRepository.save(newRoom);
 
-            if (room.getNumberBedsPerRoom() > 0) {
-                for (int c = 1; c <= room.getNumberBedsPerRoom(); c++) {
-                    bedService.generateBed(newRoom, c);
-                }
+            if (roomDTO.getNumberBedsPerRoom() > 0) {
+                    bedService.generateBed(roomDTO, newRoom);
             }
-
         }
-
         return null;
     }
 

@@ -37,8 +37,4 @@ public class Room {
     @JsonManagedReference
     private List<Bed> beds = new ArrayList<>();
 
-    public void addBed(Bed bed) {
-        this.beds.add(bed);
-        bed.setRoom(this);
-    }
 }

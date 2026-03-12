@@ -22,6 +22,7 @@ public class Hospital {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     private String name;
 
     @Column(unique = true)
@@ -33,10 +34,4 @@ public class Hospital {
     @OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Ward> wards = new ArrayList<>();
-
-    public void addWard(Ward ward) {
-        this.wards.add(ward);
-        ward.setHospital(this);
-    }
-
 }

@@ -39,11 +39,4 @@ public class Ward {
     @OneToMany(mappedBy = "ward", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Room> rooms = new ArrayList<>();
-
-    public void addRoom(Room room) {
-        this.rooms.add(room);
-        room.setWard(this);
-    }
-
-
 }
