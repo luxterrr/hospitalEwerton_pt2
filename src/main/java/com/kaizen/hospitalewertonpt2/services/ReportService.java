@@ -1,8 +1,11 @@
 package com.kaizen.hospitalewertonpt2.services;
 
+import com.kaizen.hospitalewertonpt2.domains.bed.Bed;
 import com.kaizen.hospitalewertonpt2.domains.log.Log;
 import com.kaizen.hospitalewertonpt2.domains.log.LogType;
 import com.kaizen.hospitalewertonpt2.domains.patient.Patient;
+import com.kaizen.hospitalewertonpt2.dtos.BedReportDTO;
+import com.kaizen.hospitalewertonpt2.repositories.BedRepository;
 import com.kaizen.hospitalewertonpt2.repositories.LogRepository;
 import com.kaizen.hospitalewertonpt2.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +23,9 @@ public class ReportService {
     @Autowired
     private PatientRepository patientRepository;
 
+    @Autowired
+    private BedRepository bedRepository;
+
     public String admittedReport(Long patientId) throws Exception {
         Patient patientFound = patientRepository.findById(patientId).orElseThrow(() -> new RuntimeException("PATIENT DOESNT EXISTS"));
 
@@ -35,5 +41,13 @@ public class ReportService {
                 "\n PATIENT's NAME: " + patientFound.getPatientName() +
                 "\n HOUR OF ADMISSION: " + patientLog.get().getTimeStamp();
         return report;
+    }
+
+    public List<BedReportDTO> bedReport(Long bedId) throws Exception {
+        Bed bedFound = bedRepository.findById(bedId).orElseThrow(() -> new RuntimeException("BED DOESNT EXISTS"));
+
+        return logRepository.findLogByBedId(bedId);
+
+
     }
 }

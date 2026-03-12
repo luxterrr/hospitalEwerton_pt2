@@ -31,14 +31,6 @@ public class Ward {
 
     private String speciality;
 
-    @NotNull
-    @Min(0)
-    private Integer numbersRooms;
-
-    @NotNull
-    @Min(0)
-    private Integer numbersBedsperRoom;
-
     @ManyToOne
     @JoinColumn(name = "hospital_id")
     @JsonBackReference

@@ -15,5 +15,5 @@ public class WardDTO {
 
     private String speciality;
     private Integer numbersRooms;
-    private Integer numbersBedsperRoom;
+    private Integer numbersBedsPerRoom;
 }

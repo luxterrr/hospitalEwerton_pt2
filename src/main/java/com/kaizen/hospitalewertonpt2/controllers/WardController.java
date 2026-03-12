@@ -1,6 +1,7 @@
 package com.kaizen.hospitalewertonpt2.controllers;
 
 import com.kaizen.hospitalewertonpt2.domains.Hospital.Hospital;
+import com.kaizen.hospitalewertonpt2.domains.ward.Ward;
 import com.kaizen.hospitalewertonpt2.dtos.WardDTO;
 import com.kaizen.hospitalewertonpt2.repositories.HospitalRepository;
 import com.kaizen.hospitalewertonpt2.services.WardService;
@@ -19,9 +20,8 @@ public class WardController {
     private HospitalRepository hospitalRepository;
 
     @PostMapping("/{hospitalId}")
-    public ResponseEntity<WardDTO> createWard (@RequestBody WardDTO wardDTO, @PathVariable Long hospitalId) throws Exception{
-        Hospital foundHospital = hospitalRepository.findById(hospitalId).orElseThrow(() -> new RuntimeException("HOSPITAL NOT FOUND"));
-        wardService.generateWard(wardDTO, foundHospital);
-        return ResponseEntity.ok(wardDTO);
+    public ResponseEntity<Ward> createWard (@RequestBody WardDTO wardDTO, @PathVariable Long hospitalId) throws Exception{
+
+        return ResponseEntity.ok(wardService.generateWard(wardDTO, hospitalId));
     }
 }

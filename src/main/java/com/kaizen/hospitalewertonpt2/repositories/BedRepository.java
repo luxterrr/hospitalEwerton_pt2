@@ -16,7 +16,7 @@ public interface BedRepository extends JpaRepository<Bed,Long> {
     @Query("SELECT b FROM Bed b " +
             "WHERE b.room.id = :roomId " +
             "AND b.statusBed = :status ")
-    List<Bed> findOccupiedBedsByRoom(@Param("roomId") Long roomId, @Param("status")StatusBed status);
+    List<Bed> findBedsByRoomAndStatusBed(@Param("roomId") Long roomId, @Param("status")StatusBed status);
 
     @Query("SELECT b FROM Bed b WHERE b.room.id = :roomId")
     List<Bed> findAllBedsbyRoom(@Param("roomId") Long roomId);

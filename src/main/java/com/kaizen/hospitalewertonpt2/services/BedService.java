@@ -17,6 +17,8 @@ public class BedService {
     private BedRepository bedRepository;
 
     public Bed generateBed(Room room, int c) {
+
+
         Bed newBed = new Bed();
         newBed.setBedNumber(c); //arrumar gambiarria
         newBed.setStatusBed(StatusBed.UNOCCUPIED);

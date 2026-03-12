@@ -10,6 +10,6 @@ import lombok.*;
 
 public class RoomDTO {
 
-    private String roomCode;
-    private boolean filled = false;
+    private Integer numberRooms;
+    private Integer numberBedsPerRoom;
 }

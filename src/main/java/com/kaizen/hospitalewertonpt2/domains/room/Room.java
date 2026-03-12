@@ -25,7 +25,6 @@ public class Room {
     private Long id;
 
     private String roomCode;
-    private Integer numberBed;
 
     private boolean filled = false;
 
