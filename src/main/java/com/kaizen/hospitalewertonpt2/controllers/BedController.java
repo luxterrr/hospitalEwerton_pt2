@@ -6,6 +6,7 @@ import com.kaizen.hospitalewertonpt2.services.BedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,4 +23,7 @@ public class BedController {
     public ResponseEntity<List<Bed>> getAllBeds() {
         return ResponseEntity.ok(bedService.getAllBeds());
     }
+
+    @PatchMapping("/prepareBed/{bedId}")
+    public ResponseEntity<>
 }
