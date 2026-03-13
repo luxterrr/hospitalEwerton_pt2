@@ -22,7 +22,6 @@ public class Hospital {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NonNull
     private String name;
 
     @Column(unique = true)

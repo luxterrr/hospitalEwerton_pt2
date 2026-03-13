@@ -21,7 +21,6 @@ public class WardController {
 
     @PostMapping("/{hospitalId}")
     public ResponseEntity<Ward> createWard (@RequestBody WardDTO wardDTO, @PathVariable Long hospitalId) throws Exception{
-
         return ResponseEntity.ok(wardService.generateWard(wardDTO, hospitalId));
     }
 }

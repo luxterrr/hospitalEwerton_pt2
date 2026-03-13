@@ -19,7 +19,6 @@ public class RoomController {
 
     @PostMapping("/{wardId}")
     public ResponseEntity<Room> createRoom (@RequestBody RoomDTO roomDTO, @PathVariable Long wardId) {
-
         return ResponseEntity.ok(roomService.generateRoom(wardId, roomDTO));
     }
 }

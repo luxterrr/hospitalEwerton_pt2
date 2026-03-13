@@ -24,8 +24,8 @@ public class HospitalService {
         hospital.setName(hospitalDTO.getName());
         hospital.setCnpj(hospitalDTO.getCnpj());
         hospital.setHospitalPhone(hospitalDTO.getHospitalPhone());
-
         hospitalRepository.save(hospital);
+
         if (hospitalDTO.getWardDTOS() != null) {
             hospitalDTO.getWardDTOS().forEach(wardDTO ->
                     hospital.getWards().add(wardService.generateWard(wardDTO, hospital.getId()))

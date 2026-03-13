@@ -56,7 +56,7 @@ public class RoomService {
     }
 
     public String generateRoomCode (Ward ward, List<Room> r) {
-        String code = "" + (ward.getSpeciality().substring(0, 3).toUpperCase() + "-");
+        String code = "" + (ward.getSpeciality().toString().substring(0, 3).toUpperCase() + "-");
         code += 1 + r.size();
         return code;
     }

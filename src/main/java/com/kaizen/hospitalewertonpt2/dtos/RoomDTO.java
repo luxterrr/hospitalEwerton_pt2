@@ -1,5 +1,6 @@
 package com.kaizen.hospitalewertonpt2.dtos;
 
+import jakarta.validation.constraints.Min;
 import lombok.*;
 
 @Data
@@ -10,6 +11,9 @@ import lombok.*;
 
 public class RoomDTO {
 
+    @Min(0)
     private Integer numberRooms;
+
+    @Min(0)
     private Integer numberBedsPerRoom;
 }

@@ -38,6 +38,7 @@ public interface LogRepository extends JpaRepository<Log, Long> {
             " r.ward.speciality, r.roomCode )" +
             "FROM Room r " +
             "WHERE r.filled = FALSE " +
+            "GROUP BY r.ward.speciality " +
             "ORDER BY r.id DESC ")
     List<RoomReportDTO> findFreeRooms();
 

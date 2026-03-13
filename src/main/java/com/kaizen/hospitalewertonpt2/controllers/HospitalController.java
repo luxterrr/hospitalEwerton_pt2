@@ -18,11 +18,8 @@ public class HospitalController {
     private HospitalService hospitalService;
 
     @PostMapping
-    public ResponseEntity<HospitalDTO> createHospital(@RequestBody HospitalDTO base) {
-        System.out.println("Hospital: " + base.getName());
-
-        hospitalService.saveHospital(base);
-        return ResponseEntity.ok(base);
+    public ResponseEntity<Hospital> createHospital(@RequestBody HospitalDTO base) {
+        return ResponseEntity.ok(hospitalService.saveHospital(base));
     }
 
     @GetMapping

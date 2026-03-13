@@ -29,7 +29,7 @@ public class Ward {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String speciality;
+    private SpecialityEnum speciality;
 
     @ManyToOne
     @JoinColumn(name = "hospital_id")

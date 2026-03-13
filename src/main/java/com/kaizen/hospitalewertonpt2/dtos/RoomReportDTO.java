@@ -1,5 +1,6 @@
 package com.kaizen.hospitalewertonpt2.dtos;
 
+import com.kaizen.hospitalewertonpt2.domains.ward.SpecialityEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,6 @@ import lombok.NoArgsConstructor;
 
 public class RoomReportDTO {
 
-    private String speciality;
+    private SpecialityEnum speciality;
     private String roomCode;
 }
